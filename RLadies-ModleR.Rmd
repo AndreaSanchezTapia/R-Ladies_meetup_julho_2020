@@ -1,0 +1,618 @@
+---
+title: "Do _script_ ao pacote de R"
+subtitle: "um exemplo desde a biologia"
+author: "Andrea Sánchez-Tapia <br> Núcleo de Computação Científica e Geoprocessamento <br> Jardim Botânico do Rio de Janeiro"
+affiliation: "R-Ladies Rio de Janeiro <br> Quarto meetup"
+date: "`r format(Sys.Date(), '%d-%m-%Y')`"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+class: bottom
+background-image: url("https://s.gravatar.com/avatar/0d725f28f69f287252f75e4ff54f90bf?s=200")
+background-position: 90% 10%
+background-size: 200px
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+options(servr.daemon = TRUE)#para que no bloquee la sesión
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#562457",
+  secondary_color = "#562457",
+  colors = c(
+    red = "#A70000",
+    purple = "#88398a",
+    orange = "#ff8811",
+    green = "#136f63",
+    blue = "#4B4FFF",
+    white = "#FFFFFF",
+    black = "#181818"
+  ),
+  text_bold_color = "#181818",
+  header_font_google = google_font("Roboto Condensed"),
+  text_font_google = google_font("Roboto Condensed", "300", "300i"),
+  code_font_google = google_font("Fira Mono"), text_font_size = "25px"
+)
+```
+### Apresentação
+
+
++ Bióloga - Universidade Nacional da Colômbia  
++ Mestre em Ecologia - UFRJ
++ Doutora em Botânica - JBRJ
++ .purple[Pós-doc - Núcleo de Computação Científica e Geoprocessamento do JBRJ]
+
+Ecologia de comunidades vegetais, restauração ecológica, ecologia quantitativa  
+
+__Informática da biodiversidade__, modelagem de nicho ecológico
+
+__Ciência aberta e reprodutível__, ética na ciência de dados, ciência de dados feminista
+
+
+---
+### Apresentação
+
++ Como trabalhar apenas com software _libre_? 
++ Usuária de `R` desde 2009
++ __O alvo hoje__: Criar e ensinar a fazer projetos de análise reprodutíveis `r emojifont::emoji(emojifont::search_emoji('grimacing'))`. Desde o download e processamento de dados até produzir o manuscrito, relatório ou apresentação (rmarkdown, __`knitr`__)
+
++ Várias ferramentas adicionais: RStudio + git + google drive + SQL
+
+---
+background-image: url("figs/coleguinhes.png")
+background-position: 68% 64%
+background-size: 600px
+
+## Pacote de R para modelagem de nicho ecológico: .red[modleR]
+
++ __Unificar__ diferentes partes do processo de MNE
++ Fornecer __metadados__ e __documentar__ decisões de parametrização
++ Se __integrar__ ao resto de ferramentas que existem no ambiente de `R`
+
+<br>
+```{r, echo = FALSE, out.width= 150}
+knitr::include_graphics("./figs/mm.png")
+```
+
+<small>
+Marinez F Siqueira, Sara Mortara, Diogo Rocha, Guilherme Gall, Felipe Sodré
+</small>
+
+.pull-left[
+
+`r icon::fa("firefox")` 
+<small>
+[https://model-r.github.io/modleR/](https://model-r.github.io/modleR/)
+</small>
+]
+
+.pull-right[
+<p style="text-align:center;">
+
+`r icon::fa("youtube")` 
+
+<a href="https://www.youtube.com/watch?v=4Xw33TdIVXA">Aula no curso ENM-2020</a>
+
+</p>
+
+]
+
+---
+class: bottom, center
+background-image: url("figs/modleR.png")
+background-position: 50% 0%
+background-size: 800px
+
+```{r, echo = FALSE, out.width= 800}
+knitr::include_graphics("./figs/preprint.png")
+```
+
+---
+background-image: url("figs/logo_jbrj.png")
+background-position: 98% 5%
+background-size: 100px
+
+ <!-- + "Curso de `R`" : ensino de ferramentas de computação científica `R` <br> --> 
+
+### Curso sobre ciência aberta e fluxos de trabalho reprodutíveis
+#### (Um curso de `R` sqn)
+
+.pull-left[
+```{r, echo = FALSE, out.width= 320}
+knitr::include_graphics("./figs/turma.JPG")
+```
+Turma 2020 :) 
+]
+
+.pull-right[
+
+__Boas práticas__ em análise de dados
+
+```{r, echo = F, out.width=200}
+knitr::include_graphics("./figs/rstudio.jpg")
+
+```
+
+```{r, echo = F, out.width= 80}
+knitr::include_graphics("./figs/logo-git.png")
+knitr::include_graphics("./figs/GitHub_Logo.png")
+knitr::include_graphics("./figs/btibucket.png")
+knitr::include_graphics("./figs/gitlab-logo-gray-rgb.png")
+```
+
+```{r, echo = F, out.width= 100}
+knitr::include_graphics("./figs/latex.jpeg")
+knitr::include_graphics("./figs/bibtex.jpeg")
+knitr::include_graphics("./figs/zotero.svg")
+```
+```{r, echo = F, out.width= 50}
+knitr::include_graphics("./figs/rmarkdown.png")
+```
+]
+
+
+ <!-- pensada como seminário
+ alunes de várias áreas do conhecimento
+ ferramentas que não têm um ensino formal
+ de grande utilidade --> 
+
+
+---
+background-image: url("figs/coronabr.png")
+background-position: 50% 90%
+background-size: 700px
+
+## Pacote [.red[coronabr]](https://liibre.github.io/coronabr/index.html)
+
++ __Disponibilizar__ os dados do Ministério da Saúde, [Brasil I/O](https://brasil.io/dataset/covid19/caso), John Hopkins
++ Sem análises, projeções ou modelos
+
+ <!-- dois colegas de longa data --> 
+
+---
+
+# Modelos de nicho ecológico ou de distribuição das espécies (ENM, SDM)
+
++ Modelos preditivos
+
++ Dados de ocorrência das espécies
+
++ Camadas preditoras ambientais (espacializadas: rasters de SIG)
+
++ Diferentes algoritmos
+ 
++ Inferência de áreas adequadas para a ocorrência das espécies
+
+<!--poner mejor una imagen-->
+
+---
+## Características particulares dos ENM-SDM
+
++ Dados de presença incompletos
+
++ Dados de ausência ainda mais incompletos
+
++ Incertezas (taxonômicas, geográficas, detectabilidade, etc.)
+
++ Motivos ecológicos para as espécies estarem ou não presentes: 
+    + Dispersão/acesso às áreas (Barreiras geográficas, distância por ex.)
+    + Interações com outros organismos (presença de competidor, ausência de facilitador/simbionte)
+
+---
+## Características particulares dos ENM-SDM
+
+```{r, eval = TRUE, message=FALSE}
+library(VennDiagram)#bregaaaaa
+grid.newpage()
+a <- draw.triple.venn(area1 = 10, area2 = 10, area3 = 10, n12 = 3, n23 = 3, n13 = 3, 
+    n123 = 1, category = c("Ecologia", "Computação", "Coleções biológicas"), lty = "blank", 
+    fill = c("skyblue", "pink1", "mediumorchid"), fontfamily = "sans",cat.fontfamily = rep("sans",3),
+    label.col = scales::alpha("white",0), cex = rep(5,7), cat.cex = 2, cat.default.pos = "text")
+```
+
+---
+
+# SDM/ENM em R
+
++ Funções de SIG com os pacotes __`raster`__, __`sp`__, __`maps`__, __`rgdal`__: (taskview Spatial)  No tidyverse: __`sf`__
+
++ Os clássicos: SDM/ENM com __`dismo`__ (Hijmans et al 2017), __`BIOMOD2`__ (Thuiller et al 2007).
+
++ Hoje: __`sdm`__, __`wallace`__, __`ENMeval`__, __`spThin`__ etc.
+
+---
+
+
+# A história
+## Primeira etapa
+
++ 2013: IIS vem com o desafio: gerar uma camada de __diversidade potencial de plantas da Mata Atlântica__
++ __A maior quantidade possível de espécies__
++ `BIOMOD2` + `for loops`- 944 espécies
++ Transição para __`dismo`__. As funções de __`dismo`__ ajustam os modelos, avaliam (__`evaluate()`__). Fiz um wrap para escrever as estatísticas de avaliação, criar os plots finais, selecionar as melhores partições baseado nas estatísticas de desempenho.
++ Três funções: modelar, juntar os modelos, fazer ensembles (combinar algoritmos)
++ Parceria com o LNCC para limpar nosso código, ajudar na paralelização, capacidade de computação (Luiz Gadelha, Guilherme Gall)
++ 2017: Submetido a Nature Ecology and Evolution (Strassburg et al)
++ Em paralelo - 2014: Aplicação `Shiny` envolvendo os scripts (Projeto de mestrado de Rafael Oliveira Lima)
+
+---
+
+# A história
+## Segunda etapa
++ 2017: SibBR - REFLORA JBRJ: incorporar uma plataforma de ENM à plataforma da Lista de Espécies da Flora do Brasil
++ Financiamento! Programador no LNCC (Guilherme Gall), programador front-end em php (Mateus Antunes), post-doc (Diogo Rocha), manutenção do app de Shiny (Renata Capellão-INMA), incorporados ao time. 
++ Hoje: https://model-r.jbrj.gov.br/
++ Pacotificação dos scripts -> ModelR package
++ 
+
+```
+devtools::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)
+```
+
+---
+class: inverse, center, middle
+
+# A história
+
+---
+# Primeira etapa (2013)
+
++ Um desafio: gerar uma camada de __diversidade potencial de plantas da Mata Atlântica__ (IIS)
+
+    + A "maior" quantidade possível de espécies
+    + Muito controle sobre a qualidade dos modelos
+    + Limpeza taxonômica, limpeza dos registros
+    + Alta resolução (30s ~1km)
+
+--
+
++ Um script usando `BIOMOD2` para uma espécie
++ Um "_`for loop`_" para reiterar para muitas espécies
+
+```
+for (especies in lista_de_especies) {
+    loooop(especie)
+}
+```
+
++ Seleção de modelos: 944 espécies
+
+--
+
++ `BIOMOD2`. Falta de controle interno sobre as funções
++ Transição para __`dismo`__. As funções de __`dismo`__ ajustam e projetam os modelos, geram estatísticas de avaliação (__`evaluate()`__).
+
+---
+background-image: url('hadley.jpg')
+background-size: 150px
+background-position: 90% 10%
+
+# Primeira etapa (2013)
+
+`"Se você está copiando e colando seu código mais`   
+`de três vezes, é hora de escrever uma função"`  
+`Hadley Wickham`
+
+
+```{r, eval = F}
+modelar <- function(x) {
+    y <- ...(x)
+    return(y)
+}
+
+# Uma espécie
+modelar(especie)
+
+# Várias espécies
+lapply(lista_de_especies, modelar)
+
+```
+
++ Quebrar a dependência das pastas 
+    + `setwd()`
+    + Caminhos absolutos: `"C://Eu/Minha_pasta/"`
++ Usar em outras listas de espécies
+
+---
+background-image: url('figs/workflow.png')
+background-size: 400px
+background-position: 95% 50%
+
+# Primeira etapa (2013)
+
+O _workflow_ em três partes
+- Modelar: `do_any()`, `do_enm()`
+- Juntar partições: `final_model()`
+- Juntar algoritmos: `ensemble_model()`
+
+---
+background-image: url('figs/alltest_alphamap1.png')
+background-position: 95% 50%
+background-size: 45%
+class: inverse
+
+## Rodava! XD 
+--
+
+## Matava a RAM :/
+## Demorava 10 dias ¬¬ 
+## Difícil compartilhamento
+
+![](figs/felipe.png)
+--
+
+---
+background-image: url('./figs/lncc.png')
+background-size: 300px
+background-position: 90% 10%
+
+# Segunda etapa
+
++ Parceria com o LNCC:
+
+    + Paralelização!!! 
+    + Capacidade de computação 
+    + Computação remota (bash, VPN)
+    + Limpar o código: git/github e código de formatação
+
+--
+
+![Wa](figs/math.gif)
+
+---
+# Paralelização
+
++ Cada processo vai para um _core_ (os computadores de hoje têm 4 _cores_)
++ Os _clusters_ de computação podem ter várias centenas de _cores_
+
+```{r, message=FALSE, warning=FALSE,eval =F}
+library(parallel)
+library(snowfall)
+library(foreach)
+
+
+sfInit(parallel = T, cpus = 3)
+sfStop()
+
+```
+
+```
+
+lapply(lista_de_especies, modelar)
+
+sfLapply(lista_de_especies, modelar)
+
+```
+
+### Passou de 10 para 2 horas ¬¬
+
+
+---
+class: bottom
+background-image: url("figs/github.png")
+background-size: contain
+background-position: 50% 50%
+
+# Github
+
+---
+background-image: url("figs/git2.png")
+background-size: contain
+background-position: 50% 50%
+
+---
+background-image: url("figs/distributed.png")
+background-size: 500px
+background-position: 90% 30%
+
+# Git vs. github
+
++ O github é um portal remoto
++ Git é o que acontece localmente
+
+
+
+---
+# Git: baseado em _snapshots_ -> o __commit__
+
+```{r echo = F, out.width=700}
+knitr::include_graphics("figs/snapshots.png")
+```
+
+https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
+
+
+---
+
+# Git: controle de versões
+
+```{r echo = F, out.width=800}
+knitr::include_graphics("figs/diff.png")
+```
+
+
+https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
+
+---
+# Git: local e remoto
+
+```{r echo = F, out.width=500}
+knitr::include_graphics("figs/areas.png")
+```
+
+
+https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
+
+---
+background-image: url("figs/logo git.png")
+background-position: 80% 10%
+class:inverse
+
+# We <3 git
+
+### Backup
+### Controle de versões
+### Reproducibilidade
+### Workflow colaborativo
+### Transparência
+
+## É preciso padronizar o jeito de escrever o código!*
+
+---
+background-image: url("figs/rpackages.png")
+background-size: 300px
+background-position: 80% 50%
+
+# Terceira etapa: Transformação em pacote
+
+
+Guilherme Gall
+![](figs/guilherme.png)
+
+--
+
++ Estrutura especial das pastas
++ Documentação específica
++ Licença
++ "Vignettes"
++ Documentação cuidadosa
++ Passar testes!
++ Submissão a CRAN _`#medo`_
+
+--
+
+#### Pacotes para ajudar:
++ `devtools`  
++ `roxygen2`  
+
+
+
+---
+background-image: url("figs/pastas.png")
+background-size: contain
+
+# Estrutura de um pacote de R
+
+
+---
+# Quarta etapa, desenvolvimento até o estado atual
+
++ Reestruturação do workflow:
+    - Uma função para fazer o setup dos dados
+    - Uma para modelar um algoritmo
+    - Outra para modelar vários algoritmos
+    - Final e ensemble
+    - Funções acessórias
+    
++ O pacote pode ser instalado via github
+
+```
+devtools::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)
+```
+
+--
+
++ Está passando tests
+![](figs/tests.png)
+
+---
+# Quarta etapa, desenvolvimento até o estado atual
+
++ Setup dos dados: _bootstrap_ e _crosvalidação_ (e _crosvalidação_ repetida)
+
+--
+
++ Diferentes maneiras de criar um _buffer_ ao redor dos pontos
+
+--
+
++ Algoritmos implementados pelo dismo: bioclim, maxent, domain distância de Mahalanobis, _gradient boost modeling_
+
+--
+
++ Algoritmos dentro de R: glm, _random forests_, _support vector models_
+
+--
+
++ Distância euclideana à mão XD
+
+--
+
++ Diogo Rocha 
+![](figs/diogo.png)  
+
+
+---
+
+# Lições nestes anos
++ Trabalho colaborativo entre instituições e áreas do conhecimento (JBRJ, LNCC, IIS)
++ Boas perguntas
++ Limpeza de dados!
++ Paciência
++ Controle de versões, ênfase na documentação
++ Testes pelos usuários (Versão web/php OK, falta muito trabalho no teste direto do pacote)
+
+
+---
+
+
++ Trabalho colaborativo entre instituições e áreas do conhecimento (JBRJ, LNCC, IIS) <3
++ Paciência ¬¬
++ __Controle de versões, ênfase na documentação__ -> reproducibilidade, transparência
++ Testes pelos usuários (Versão web/php OK, falta muito trabalho no teste direto do pacote)
+
+
+
+---
+# Sobre qualquer _script_ em geral
+
+.pull-left[
+`Não`
++ Use `setwd()` e a mesma sessão para diferentes projetos
++ Use pastas absolutas (`"C://Eu/Minha_pasta/"`)
++ Dependa do workspace: chega de salvar e carregar o `.RData`.
+]
+
+.pull-right[
+`Sim`
++ Use os projetos de RStudio! (`.RProj`) 
++ Em vez disso `("aqui", "./subpasta","../pasta do lado")` 
++ E escreva arquivos de output e leia-os
++ Invista em aprender a usar __git__ e __github__ ou __bitbucket.__
++ Documente e comente tudo o que puder
++ Use um padrão de código (espaços, indentação, etc...)
+]
+
+---
+class: center
+
+# Projetos de RStudio
+
+
+```{r remedy001, out.width = 800, echo = F}
+knitr::include_graphics("figs/proj2.gif")
+```
+
+---
+
+---
+class: center, middle
+
+# ¡Obrigada!
+
+`r icon::fa("paper-plane", colour = "#562457")` [andreasancheztapia@gmail.com](mailto:andreasancheztapia@gmail.com) 
+
+`r icon::fa("twitter", colour = "#562457")` [@SanchezTapiaA](https://twitter.com/SanchezTapiaA) 
+
+`r icon::fa("github", colour = "#562457")` `r icon::fa("gitlab", colour = "#562457")` `r icon::fa("bitbucket", colour = "#562457")` [andreasancheztapia](http://github.com/andreasancheztapia) 
+
+`r icon::fa("r-project", colour = "#562457")` [R-Ladies+ Rio de Janeiro](https://www.meetup.com/pt-BR/rladies-rio/)
+
