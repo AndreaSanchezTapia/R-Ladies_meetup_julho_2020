@@ -13,12 +13,10 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-
-
-class: bottom
-background-image: url("https://s.gravatar.com/avatar/0d725f28f69f287252f75e4ff54f90bf?s=200")
-background-position: 90% 10%
-background-size: 200px
+class: middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
@@ -58,78 +56,40 @@ __Ciência aberta e reprodutível__, ética na ciência de dados, ciência de da
 
 
 ---
+class: middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
 ### Apresentação
 
 + Como trabalhar apenas com software _libre_? 
+
 + Usuária de `R` desde 2009
-+ __O alvo hoje__: Criar e ensinar a fazer projetos de análise reprodutíveis `r emojifont::emoji(emojifont::search_emoji('grimacing'))`. Desde o download e processamento de dados até produzir o manuscrito, relatório ou apresentação (rmarkdown, __`knitr`__)
+
++ __O alvo hoje__: Executar e ensinar a fazer projetos de análise reprodutíveis `r emojifont::emoji(emojifont::search_emoji('grimacing'))`. Desde o download e processamento de dados até produzir o manuscrito, relatório ou apresentação (rmarkdown, __`knitr`__)
 
 + Várias ferramentas adicionais: RStudio + git + google drive + SQL
 
 ---
-background-image: url("figs/coleguinhes.png")
-background-position: 68% 64%
-background-size: 600px
-
-## Pacote de R para modelagem de nicho ecológico: .red[modleR]
-
-+ __Unificar__ diferentes partes do processo de MNE
-+ Fornecer __metadados__ e __documentar__ decisões de parametrização
-+ Se __integrar__ ao resto de ferramentas que existem no ambiente de `R`
-
-<br>
-```{r, echo = FALSE, out.width= 150}
-knitr::include_graphics("./figs/mm.png")
-```
-
-<small>
-Marinez F Siqueira, Sara Mortara, Diogo Rocha, Guilherme Gall, Felipe Sodré
-</small>
-
-.pull-left[
-
-`r icon::fa("firefox")` 
-<small>
-[https://model-r.github.io/modleR/](https://model-r.github.io/modleR/)
-</small>
-]
-
-.pull-right[
-<p style="text-align:center;">
-
-`r icon::fa("youtube")` 
-
-<a href="https://www.youtube.com/watch?v=4Xw33TdIVXA">Aula no curso ENM-2020</a>
-
-</p>
-
-]
-
----
-class: bottom, center
-background-image: url("figs/modleR.png")
-background-position: 50% 0%
-background-size: 800px
-
-```{r, echo = FALSE, out.width= 800}
-knitr::include_graphics("./figs/preprint.png")
-```
-
----
-background-image: url("figs/logo_jbrj.png")
-background-position: 98% 5%
-background-size: 100px
+class: middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
  <!-- + "Curso de `R`" : ensino de ferramentas de computação científica `R` <br> --> 
 
 ### Curso sobre ciência aberta e fluxos de trabalho reprodutíveis
-#### (Um curso de `R` sqn)
 
 .pull-left[
-```{r, echo = FALSE, out.width= 320}
+```{r, echo = FALSE, out.width= 300}
 knitr::include_graphics("./figs/turma.JPG")
 ```
-Turma 2020 :) 
+
+
+```{r, echo = F, out.width= 100}
+knitr::include_graphics("./figs/logo_jbrj.png")
+```
 ]
 
 .pull-right[
@@ -156,6 +116,10 @@ knitr::include_graphics("./figs/zotero.svg")
 ```{r, echo = F, out.width= 50}
 knitr::include_graphics("./figs/rmarkdown.png")
 ```
+
+```{r, echo = F, out.width= 50}
+knitr::include_graphics("./figs/xaringan.png")
+```
 ]
 
 
@@ -164,98 +128,114 @@ knitr::include_graphics("./figs/rmarkdown.png")
  ferramentas que não têm um ensino formal
  de grande utilidade --> 
 
+---
+class: middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
+### Por que a ênfase em reprodutibilidade?
+
++ Transparência
++ Portabilidade - colaboração!
++ Correção de erros `->` robusteza
++ Comunicação
+
+Para criar um pacote de R precisa ser todas estas coisas
+
+### Mas _bem antes_ de chegar ao pacote também é bom implementar estas boas práticas!
+
 
 ---
-background-image: url("figs/coronabr.png")
-background-position: 50% 90%
-background-size: 700px
+class: middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
-## Pacote [.red[coronabr]](https://liibre.github.io/coronabr/index.html)
+### Pacote de R para modelagem de nicho <br> ecológico: .red[modleR]
 
-+ __Disponibilizar__ os dados do Ministério da Saúde, [Brasil I/O](https://brasil.io/dataset/covid19/caso), John Hopkins
-+ Sem análises, projeções ou modelos
++ __Unificar__ diferentes partes do processo de MNE
++ Fornecer __metadados__ e __documentar__ decisões de parametrização
++ Se __integrar__ ao resto de ferramentas que existem no ambiente de `R`
 
- <!-- dois colegas de longa data --> 
+<br>
+```{r, echo = FALSE, out.width= 151}
+knitr::include_graphics("./figs/mm.png")
+```
+```{r, echo = FALSE, out.width= 600}
+knitr::include_graphics("./figs/coleguinhes.png")
+```
+
+<small>
+Marinez F Siqueira, Sara Mortara, Diogo Rocha, Guilherme Gall, Felipe Sodré
+</small>
+
+.pull-left[
+
+`r icon::fa("firefox")` 
+<small>
+[https://model-r.github.io/modleR/](https://model-r.github.io/modleR/)
+</small>
+]
+
+.pull-right[
+<p style="text-align:center;">
+
+`r icon::fa("youtube")` 
+
+<small>
+<a href="https://www.youtube.com/watch?v=4Xw33TdIVXA">Aula no curso ENM-2020</a>
+
+</small>
+</p>
+
+]
 
 ---
+class: bottom, center
+background-image: url("figs/modleR.png")
+background-position: 50% 0%
+background-size: 800px
 
-# Modelos de nicho ecológico ou de distribuição das espécies (ENM, SDM)
+```{r, echo = FALSE, out.width= 800}
+knitr::include_graphics("./figs/preprint.png")
+```
 
-+ Modelos preditivos
 
-+ Dados de ocorrência das espécies
+---
+class: middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
-+ Camadas preditoras ambientais (espacializadas: rasters de SIG)
+### Modelos de nicho ecológico (ENM, SDM)
+
++ Dados de ocorrência das espécies: __objetos espaciais__, bases de dados, limpeza de dados.
+
++ Camadas preditoras ambientais ( __rasters__ de SIG)  Pacotes __`raster`__, __`sp`__, __`maps`__, __`rgdal`__: (taskview Spatial)  Hoje no _tidyverse_: __`sf`__
+
++ Modelagem preditiva 
 
 + Diferentes algoritmos
  
-+ Inferência de áreas adequadas para a ocorrência das espécies
-
-<!--poner mejor una imagen-->
++ __Inferência de áreas adequadas para a ocorrência das espécies__
 
 ---
-## Características particulares dos ENM-SDM
+### Modelos de nicho ecológico ou de distribuição das espécies (ENM, SDM)
 
-+ Dados de presença incompletos
 
-+ Dados de ausência ainda mais incompletos
+<center>
 
-+ Incertezas (taxonômicas, geográficas, detectabilidade, etc.)
-
-+ Motivos ecológicos para as espécies estarem ou não presentes: 
-    + Dispersão/acesso às áreas (Barreiras geográficas, distância por ex.)
-    + Interações com outros organismos (presença de competidor, ausência de facilitador/simbionte)
-
----
-## Características particulares dos ENM-SDM
-
-```{r, eval = TRUE, message=FALSE}
+```{r, eval = TRUE, message=FALSE, echo = FALSE}
 library(VennDiagram)#bregaaaaa
 grid.newpage()
-a <- draw.triple.venn(area1 = 10, area2 = 10, area3 = 10, n12 = 3, n23 = 3, n13 = 3, 
+a <- draw.triple.venn(area1 = 15, area2 = 15, area3 = 15, n12 = 3, n23 = 3, n13 = 3, 
     n123 = 1, category = c("Ecologia", "Computação", "Coleções biológicas"), lty = "blank", 
     fill = c("skyblue", "pink1", "mediumorchid"), fontfamily = "sans",cat.fontfamily = rep("sans",3),
     label.col = scales::alpha("white",0), cex = rep(5,7), cat.cex = 2, cat.default.pos = "text")
 ```
 
----
-
-# SDM/ENM em R
-
-+ Funções de SIG com os pacotes __`raster`__, __`sp`__, __`maps`__, __`rgdal`__: (taskview Spatial)  No tidyverse: __`sf`__
-
-+ Os clássicos: SDM/ENM com __`dismo`__ (Hijmans et al 2017), __`BIOMOD2`__ (Thuiller et al 2007).
-
-+ Hoje: __`sdm`__, __`wallace`__, __`ENMeval`__, __`spThin`__ etc.
-
----
-
-
-# A história
-## Primeira etapa
-
-+ 2013: IIS vem com o desafio: gerar uma camada de __diversidade potencial de plantas da Mata Atlântica__
-+ __A maior quantidade possível de espécies__
-+ `BIOMOD2` + `for loops`- 944 espécies
-+ Transição para __`dismo`__. As funções de __`dismo`__ ajustam os modelos, avaliam (__`evaluate()`__). Fiz um wrap para escrever as estatísticas de avaliação, criar os plots finais, selecionar as melhores partições baseado nas estatísticas de desempenho.
-+ Três funções: modelar, juntar os modelos, fazer ensembles (combinar algoritmos)
-+ Parceria com o LNCC para limpar nosso código, ajudar na paralelização, capacidade de computação (Luiz Gadelha, Guilherme Gall)
-+ 2017: Submetido a Nature Ecology and Evolution (Strassburg et al)
-+ Em paralelo - 2014: Aplicação `Shiny` envolvendo os scripts (Projeto de mestrado de Rafael Oliveira Lima)
-
----
-
-# A história
-## Segunda etapa
-+ 2017: SibBR - REFLORA JBRJ: incorporar uma plataforma de ENM à plataforma da Lista de Espécies da Flora do Brasil
-+ Financiamento! Programador no LNCC (Guilherme Gall), programador front-end em php (Mateus Antunes), post-doc (Diogo Rocha), manutenção do app de Shiny (Renata Capellão-INMA), incorporados ao time. 
-+ Hoje: https://model-r.jbrj.gov.br/
-+ Pacotificação dos scripts -> ModelR package
-+ 
-
-```
-devtools::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)
-```
+<\center>
 
 ---
 class: inverse, center, middle
@@ -263,9 +243,9 @@ class: inverse, center, middle
 # A história
 
 ---
-# Primeira etapa (2013)
+### Primeira etapa: _scripts_ soltos
 
-+ Um desafio: gerar uma camada de __diversidade potencial de plantas da Mata Atlântica__ (IIS)
++ Um desafio: gerar uma camada de __diversidade potencial de plantas da Mata Atlântica__
 
     + A "maior" quantidade possível de espécies
     + Muito controle sobre a qualidade dos modelos
@@ -273,34 +253,109 @@ class: inverse, center, middle
     + Alta resolução (30s ~1km)
 
 --
+#### Pensar o fluxo de trabalho: 
 
-+ Um script usando `BIOMOD2` para uma espécie
-+ Um "_`for loop`_" para reiterar para muitas espécies
+Cada espécie precisa passar por várias etapas: 
 
++ Obtenção, __limpeza__ de dados
++ Desenho experimental, __preparação__ dos dados
++ Fazer os __modelos__, __projetar__ os modelos para vários algoritmos
++ Juntar os resultados dos diferentes algoritmos
++ Juntar o resultado para várias espécies
+
+---
+### Boas práticas `r emojifont::emoji('heart')` estrutura de pastas e pasta de trabalho 
+
++ _Meetup_ anterior! [link](https://www.youtube.com/watch?time_continue=1563&v=4nfIbiS1Huw&feature=emb_title) e arquivo .zip 
+
+--
+
++ Não use `setwd()`! `r emojifont::emoji('fire')`
+
+--
+
++ Não mude de pasta de trabalho ao longo do projeto: use __caminhos relativos__
+
+--
+    
++ Caminhos absolutos: `"C://Eu/Minha_pasta/arquivo_meu_v_13.csv"`
+
+--
+
++ Caminhos relativos: `"./data"`, `"./figs"`
+
+---
+### Boas práticas `r emojifont::emoji('heart')` estrutura de pastas e pasta de trabalho 
+
++ Cuide da estrutura de pastas
+
+```bash
+.
+├── codigo/    # Scripts em R
+├── dados/     # Dados 
+├── output/    # Outputs gerados a partir dos códigos
+├── figs/      # Figuras geradas a partir dos códigos
+├── docs/      # Relatórios reprodutíveis a partir dos outputs
+├── *.Rproj    # Projeto de RStudio
+├── .gitignore # Lista dos arquivos e pastas que não serão controlados
+└── README.md   
 ```
-for (especies in lista_de_especies) {
+
+O nível acima são dois pontos `..`
+
+Nenhum caminho absoluto é necessário!
+
+
+---
+### Primeira etapa: _scripts_ soltos
+
++ Um script para __uma__ espécie
+(fazia todas as etapas de vez)
+
+--
+
++ Um _`"for loop"`_ para fazer para várias espécies
+
+```r
+lista_de_especies <- c("sp1", "sp2", "sp3")
+```
+
+--
+
+```r
+for (especie in lista_de_especies) {
     loooop(especie)
 }
 ```
 
-+ Seleção de modelos: 944 espécies
-
 --
 
-+ `BIOMOD2`. Falta de controle interno sobre as funções
-+ Transição para __`dismo`__. As funções de __`dismo`__ ajustam e projetam os modelos, geram estatísticas de avaliação (__`evaluate()`__).
+```r
+especie <- sp1
+looop(sp1)
+
+especie <- sp2
+looop(sp2)
+
+especie <- sp3
+looop(sp3)
+```
+
 
 ---
-background-image: url('hadley.jpg')
+background-image: url('figs/hadley.jpg')
 background-size: 150px
 background-position: 90% 10%
 
-# Primeira etapa (2013)
+### Criar funções
 
-`"Se você está copiando e colando seu código mais`   
-`de três vezes, é hora de escrever uma função"`  
+
+"Se você está copiando e colando seu código mais   
+de três vezes, é hora de escrever uma função"
+
 `Hadley Wickham`
 
+--
 
 ```{r, eval = F}
 modelar <- function(x) {
@@ -314,24 +369,13 @@ modelar(especie)
 # Várias espécies
 lapply(lista_de_especies, modelar)
 
+purrr::map(lista_de_especies, 
+           ~modelar)
 ```
 
-+ Quebrar a dependência das pastas 
-    + `setwd()`
-    + Caminhos absolutos: `"C://Eu/Minha_pasta/"`
-+ Usar em outras listas de espécies
+--
 
----
-background-image: url('figs/workflow.png')
-background-size: 400px
-background-position: 95% 50%
-
-# Primeira etapa (2013)
-
-O _workflow_ em três partes
-- Modelar: `do_any()`, `do_enm()`
-- Juntar partições: `final_model()`
-- Juntar algoritmos: `ensemble_model()`
+#### A função ainda rodava todas as etapas da análise para cada espécie!
 
 ---
 background-image: url('figs/alltest_alphamap1.png')
@@ -339,15 +383,20 @@ background-position: 95% 50%
 background-size: 45%
 class: inverse
 
-## Rodava! XD 
+### Rodava!  
 --
 
-## Matava a RAM :/
-## Demorava 10 dias ¬¬ 
-## Difícil compartilhamento
-
-![](figs/felipe.png)
+### Matava a RAM :/
 --
+
+### Demorava 10 dias ¬¬ 
+--
+
+### Fazia uma espécie após <br> a outra
+
+--
+![](figs/felipe.png) Felipe Sodré
+
 
 ---
 background-image: url('./figs/lncc.png')
@@ -356,72 +405,77 @@ background-position: 90% 10%
 
 # Segunda etapa
 
-+ Parceria com o LNCC:
++ Capacidade de computação 
++ Computação remota (bash, VPN)
++ __Paralelização__!!! 
 
-    + Paralelização!!! 
-    + Capacidade de computação 
-    + Computação remota (bash, VPN)
-    + Limpar o código: git/github e código de formatação
++ Limpar o código:
+  + Separar os quatro processos em funções diferentes
+  + __Começar a usar controle de versões__ (git/github)
+  + Cuidar o __estilo de código__ 
 
 --
 
+
 ![Wa](figs/math.gif)
 
+
 ---
-# Paralelização
+### Paralelização
 
 + Cada processo vai para um _core_ (os computadores de hoje têm 4 _cores_)
 + Os _clusters_ de computação podem ter várias centenas de _cores_
++ Há várias maneiras de paralelizar processos em R
 
-```{r, message=FALSE, warning=FALSE,eval =F}
+```r
 library(parallel)
 library(snowfall)
 library(foreach)
+library(futures)
+```
 
-
+```r
 sfInit(parallel = T, cpus = 3)
-sfStop()
-
-```
-
-```
-
-lapply(lista_de_especies, modelar)
-
+sfExportAll() # para que cada núcleo receba as variávei no workspace
 sfLapply(lista_de_especies, modelar)
-
+sfStop()
 ```
 
 ### Passou de 10 para 2 horas ¬¬
 
 
 ---
-class: bottom
-background-image: url("figs/github.png")
-background-size: contain
-background-position: 50% 50%
+### __Modularizar__ o código
 
-# Github
+Cada core aceitava uma especie inteira - os quatro processos. 
+
+E se a gente rodasse um processo por vez para todas as espécies? 
+
+Quatro funções
 
 ---
 background-image: url("figs/git2.png")
-background-size: contain
+background-size: 80%
 background-position: 50% 50%
+
+### Controle de versões: Git e GitHub
+
+
 
 ---
 background-image: url("figs/distributed.png")
 background-size: 500px
 background-position: 90% 30%
 
-# Git vs. github
+### Git vs. GitHub
 
-+ O github é um portal remoto
++ O GitHub é um portal remoto
 + Git é o que acontece localmente
 
 
 
 ---
-# Git: baseado em _snapshots_ -> o __commit__
+### Git: baseado em _snapshots_ -> o __commit__
 
 ```{r echo = F, out.width=700}
 knitr::include_graphics("figs/snapshots.png")
@@ -459,23 +513,57 @@ class:inverse
 # We <3 git
 
 ### Backup
+
+--
+
 ### Controle de versões
-### Reproducibilidade
+
+--
+
+### Reprodutibilidade
+
+--
+
 ### Workflow colaborativo
+
+--
+
 ### Transparência
+
 
 ## É preciso padronizar o jeito de escrever o código!*
 
 ---
+### Estilo de código
+
+"Um bom estilo de código é como usar uma boa pontuação. Você pode viver sem ela mas sem dúvida facilita ler as coisas." 
+
+Hadley Wickham
+
+
++ [Google's R style guide](https://google.github.io/styleguide/Rguide.html)
++ [tidyverse](https://style.tidyverse.org/)
++ [Advanced R](http://adv-r.had.co.nz/Style.html)
+
+Independente do estilo, o que importa é ser consistente!
+
+`Ctrl+Shift+A` Reformata code
+
+pacote __formatR__ 
+
+
+---
 background-image: url("figs/rpackages.png")
 background-size: 300px
-background-position: 80% 50%
+background-position: 90% 50%
 
-# Terceira etapa: Transformação em pacote
+### Terceira etapa: Transformação em pacote
 
 
+```{r echo = F, out.width=90}
+knitr::include_graphics("figs/guilherme.png")
+```
 Guilherme Gall
-![](figs/guilherme.png)
 
 --
 
@@ -499,20 +587,10 @@ Guilherme Gall
 background-image: url("figs/pastas.png")
 background-size: contain
 
-# Estrutura de um pacote de R
+### Estrutura de um pacote de R
 
 
 ---
-# Quarta etapa, desenvolvimento até o estado atual
-
-+ Reestruturação do workflow:
-    - Uma função para fazer o setup dos dados
-    - Uma para modelar um algoritmo
-    - Outra para modelar vários algoritmos
-    - Final e ensemble
-    - Funções acessórias
-    
-+ O pacote pode ser instalado via github
 
 ```
 devtools::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)
@@ -522,54 +600,24 @@ devtools::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)
 
 + Está passando tests
 ![](figs/tests.png)
+---
+### Fluxos automatizados : __usethis__
 
 ---
-# Quarta etapa, desenvolvimento até o estado atual
-
-+ Setup dos dados: _bootstrap_ e _crosvalidação_ (e _crosvalidação_ repetida)
-
---
-
-+ Diferentes maneiras de criar um _buffer_ ao redor dos pontos
-
---
-
-+ Algoritmos implementados pelo dismo: bioclim, maxent, domain distância de Mahalanobis, _gradient boost modeling_
-
---
-
-+ Algoritmos dentro de R: glm, _random forests_, _support vector models_
-
---
-
-+ Distância euclideana à mão XD
-
---
-
-+ Diogo Rocha 
-![](figs/diogo.png)  
-
+### Tests formais: __testthat__
 
 ---
+### Uma página para o seu pacote: __pkgdown__
 
-# Lições nestes anos
+---
+### Lições nestes anos
+
 + Trabalho colaborativo entre instituições e áreas do conhecimento (JBRJ, LNCC, IIS)
 + Boas perguntas
 + Limpeza de dados!
 + Paciência
 + Controle de versões, ênfase na documentação
 + Testes pelos usuários (Versão web/php OK, falta muito trabalho no teste direto do pacote)
-
-
----
-
-
-+ Trabalho colaborativo entre instituições e áreas do conhecimento (JBRJ, LNCC, IIS) <3
-+ Paciência ¬¬
-+ __Controle de versões, ênfase na documentação__ -> reproducibilidade, transparência
-+ Testes pelos usuários (Versão web/php OK, falta muito trabalho no teste direto do pacote)
-
-
 
 ---
 # Sobre qualquer _script_ em geral
@@ -590,18 +638,6 @@ devtools::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)
 + Documente e comente tudo o que puder
 + Use um padrão de código (espaços, indentação, etc...)
 ]
-
----
-class: center
-
-# Projetos de RStudio
-
-
-```{r remedy001, out.width = 800, echo = F}
-knitr::include_graphics("figs/proj2.gif")
-```
-
----
 
 ---
 class: center, middle
