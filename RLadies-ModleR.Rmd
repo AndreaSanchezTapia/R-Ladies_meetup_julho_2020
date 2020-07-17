@@ -689,7 +689,7 @@ importFrom(dismo,randomPoints)
 ```
 
 ---
-### A documentação das funções
+### __roxygen2__ e a documentação das funções
 
 ```bash
 .
@@ -710,7 +710,7 @@ importFrom(dismo,randomPoints)
 + Hoje: os parâmetros das funções podem ser documentados diretamente nos arquivos em R/ com um método diferente: `#'` e indicando os parâmetros, e as funções de pacotes que serão usadas 
 
 ---
-### A documentação das funções
+### __roxygen2__ e a documentação das funções
 
 ```
 #' Titulo da funcao
@@ -735,7 +735,7 @@ funfunfun
 + Vai criar os arquivos em man, editar o NAMESPACE
 
 ---
-### Outras formas de documentar: vignettes e README
+### Outras formas de documentação: vignettes e README
 
 ```bash
 .
@@ -753,7 +753,7 @@ funfunfun
 
 README e vignettes são arquivos de rmarkdown que são knittados 
 
-```{r, echo = FALSE, out.width=80}
+```{r, echo = FALSE, out.width=100}
 knitr::include_graphics("./figs/rmarkdown.png")
 ```
 
@@ -775,13 +775,34 @@ knitr::include_graphics("./figs/rmarkdown.png")
 --
 
 ---
+background-image: url("figs/usethis.png")
+background-position: 98% 2%
+background-size: 150px
+
 ### Fluxos automatizados : __usethis__
 
 ---
+background-image: url("figs/testthat.png")
+background-position: 98% 2%
+background-size: 150px
+
 ### Tests formais: __testthat__
 
 ---
+background-image: url("figs/pkgdown-logo.png")
+background-position: 98% 2%
+background-size: 150px
 ### Uma página para o seu pacote: __pkgdown__
+
+```{r, echo = FALSE, out.width=350}
+knitr::include_graphics("./figs/pkgdown.png")
+```
+
++ `pkgdown::build_site()` vai knittar tudo em formato de página web e colocar em uma pasta __docs/__ do pacote
++ O repositório de GitHub tem que estar configurado para fazer uma página a partir dessa pasta
++ O readme ou um index.md serão a primeira página
++ A vignette principal irá em Get started
++ Vignettes adicionais __que não estão no pacote__ devem ir em vignettes/articles e irão na aba Articles
 
 ---
 ### Lições nestes anos
