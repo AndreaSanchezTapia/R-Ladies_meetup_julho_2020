@@ -13,7 +13,6 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-class: middle
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
@@ -55,8 +54,8 @@ __Informática da biodiversidade__, modelagem de nicho ecológico
 __Ciência aberta e reprodutível__, ética na ciência de dados, ciência de dados feminista
 
 
+
 ---
-class: middle
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
@@ -67,17 +66,17 @@ background-size: 150px
 
 + Usuária de `R` desde 2009
 
-+ __O alvo hoje__: Executar e ensinar a fazer projetos de análise reprodutíveis `r emojifont::emoji(emojifont::search_emoji('grimacing'))`. Desde o download e processamento de dados até produzir o manuscrito, relatório ou apresentação (rmarkdown, __`knitr`__)
++ __O alvo hoje__: Executar e ensinar a fazer projetos de análise reprodutíveis. Desde o download e processamento de dados até produzir o manuscrito, relatório ou apresentação (__`rmarkdown`__, __`knitr`__)
 
-+ Várias ferramentas adicionais: RStudio + git + google drive + SQL
++ R-Ladies+ Rio desde 2016 
+
++ Co-fundadora de .red[__¡liibre!__] com Sara Mortara (R-Ladies+ Rio): laboratório de informática da biodiversidade e reprodutibilidade em ecologia
 
 ---
-class: middle
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
- <!-- + "Curso de `R`" : ensino de ferramentas de computação científica `R` <br> --> 
 
 ### Curso sobre ciência aberta e fluxos de trabalho reprodutíveis
 
@@ -117,7 +116,7 @@ knitr::include_graphics("./figs/zotero.svg")
 knitr::include_graphics("./figs/rmarkdown.png")
 ```
 
-```{r, echo = F, out.width= 50}
+```{r, echo = F, out.width= 60}
 knitr::include_graphics("./figs/xaringan.png")
 ```
 ]
@@ -129,7 +128,6 @@ knitr::include_graphics("./figs/xaringan.png")
  de grande utilidade --> 
 
 ---
-class: middle
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
@@ -203,68 +201,38 @@ knitr::include_graphics("./figs/preprint.png")
 
 
 ---
-class: middle
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
-### Modelos de nicho ecológico (ENM, SDM)
+### Modelos de nicho ecológico ou de <br> distribuição das espécies (ENM, SDM)
 
 + Dados de ocorrência das espécies: __objetos espaciais__, bases de dados, limpeza de dados.
 
 + Camadas preditoras ambientais ( __rasters__ de SIG)  Pacotes __`raster`__, __`sp`__, __`maps`__, __`rgdal`__: (taskview Spatial)  Hoje no _tidyverse_: __`sf`__
 
-+ Modelagem preditiva 
++ Abordagem de aprendizado estatístico 
 
 + Diferentes algoritmos
  
 + __Inferência de áreas adequadas para a ocorrência das espécies__
 
 ---
-### Modelos de nicho ecológico ou de distribuição das espécies (ENM, SDM)
+class: inverse, middle, center
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
+### A gente já conhecia algumas boas práticas
 
 
-<center>
-
-```{r, eval = TRUE, message=FALSE, echo = FALSE}
-library(VennDiagram)#bregaaaaa
-grid.newpage()
-a <- draw.triple.venn(area1 = 15, area2 = 15, area3 = 15, n12 = 3, n23 = 3, n13 = 3, 
-    n123 = 1, category = c("Ecologia", "Computação", "Coleções biológicas"), lty = "blank", 
-    fill = c("skyblue", "pink1", "mediumorchid"), fontfamily = "sans",cat.fontfamily = rep("sans",3),
-    label.col = scales::alpha("white",0), cex = rep(5,7), cat.cex = 2, cat.default.pos = "text")
-```
-
-<\center>
 
 ---
-class: inverse, center, middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
-# A história
-
----
-### Primeira etapa: _scripts_ soltos
-
-+ Um desafio: gerar uma camada de __diversidade potencial de plantas da Mata Atlântica__
-
-    + A "maior" quantidade possível de espécies
-    + Muito controle sobre a qualidade dos modelos
-    + Limpeza taxonômica, limpeza dos registros
-    + Alta resolução (30s ~1km)
-
---
-#### Pensar o fluxo de trabalho: 
-
-Cada espécie precisa passar por várias etapas: 
-
-+ Obtenção, __limpeza__ de dados
-+ Desenho experimental, __preparação__ dos dados
-+ Fazer os __modelos__, __projetar__ os modelos para vários algoritmos
-+ Juntar os resultados dos diferentes algoritmos
-+ Juntar o resultado para várias espécies
-
----
-### Boas práticas `r emojifont::emoji('heart')` estrutura de pastas e pasta de trabalho 
+### Boas práticas `r emojifont::emoji('heart')` <br> estrutura de pastas e pasta de trabalho 
 
 + _Meetup_ anterior! [link](https://www.youtube.com/watch?time_continue=1563&v=4nfIbiS1Huw&feature=emb_title) e arquivo .zip 
 
@@ -278,16 +246,30 @@ Cada espécie precisa passar por várias etapas:
 
 --
     
-+ Caminhos absolutos: `"C://Eu/Minha_pasta/arquivo_meu_v_13.csv"`
+  + Caminhos absolutos: `"C://Eu/Minha_pasta/arquivo_meu_v_13.csv"`
 
 --
 
-+ Caminhos relativos: `"./data"`, `"./figs"`
+  + Caminhos relativos: `"./data"`, `"./figs"`
+  
+--
+
+ + O nível acima é com dois pontos: `..`
+
+--
+
+ + Uma pasta "do lado" é uma subpasta desse nível acima: `"../pasta_irmã"`
+
 
 ---
-### Boas práticas `r emojifont::emoji('heart')` estrutura de pastas e pasta de trabalho 
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
+### Boas práticas `r emojifont::emoji('heart')` <br> estrutura de pastas e pasta de trabalho 
 
 + Cuide da estrutura de pastas
+--
 
 ```bash
 .
@@ -300,21 +282,53 @@ Cada espécie precisa passar por várias etapas:
 ├── .gitignore # Lista dos arquivos e pastas que não serão controlados
 └── README.md   
 ```
+--
 
-O nível acima são dois pontos `..`
++ Abra as sessões de R já na pasta de trabalho
+--
 
-Nenhum caminho absoluto é necessário!
+ + Um atalho: usar o pacote __rprojroot__ ou __here__
+--
 
+ + Um atalho melhor: usar projetos de .blue[RStudio]
+
+---
+class: inverse, center, middle
+
+# A história
+
+---
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
+### Primeira etapa: _scripts_ soltos
+
+#### O trabalho: gerar uma camada de diversidade potencial de plantas <br> da Mata Atlântica
+
++ A "maior" quantidade possível de espécies
++ Muito controle sobre a qualidade dos modelos
++ Correção taxonômica, limpeza dos registros
++ Alta resolução (30s ~1km)
+
+--
+
+#### O fluxo de trabalho: cada espécie precisa passar por várias etapas
+
++ Obtenção, __limpeza__ de dados
++ Desenho experimental, __preparação__ dos dados
++ Fazer os __modelos__, __projetar__ os modelos para vários algoritmos
++ Juntar os resultados dos diferentes algoritmos
++ Juntar o resultado para várias espécies
 
 ---
 ### Primeira etapa: _scripts_ soltos
 
-+ Um script para __uma__ espécie
-(fazia todas as etapas de vez)
++ Um script para __uma__ espécie (fazia todas as etapas de vez)
 
 --
 
-+ Um _`"for loop"`_ para fazer para várias espécies
++ Um `"for loop"` para fazer para várias espécies
 
 ```r
 lista_de_especies <- c("sp1", "sp2", "sp3")
@@ -323,8 +337,8 @@ lista_de_especies <- c("sp1", "sp2", "sp3")
 --
 
 ```r
-for (especie in lista_de_especies) {
-    loooop(especie)
+for (especie in lista_de_especies) { # pode ter qualquer nome, i
+    todo_o_codigo(especie)
 }
 ```
 
@@ -395,7 +409,7 @@ class: inverse
 ### Fazia uma espécie após <br> a outra
 
 --
-![](figs/felipe.png) Felipe Sodré
+![](figs/felipe.png) <br> Felipe Sodré
 
 
 ---
@@ -403,16 +417,16 @@ background-image: url('./figs/lncc.png')
 background-size: 300px
 background-position: 90% 10%
 
-# Segunda etapa
+### Segunda etapa
 
 + Capacidade de computação 
-+ Computação remota (bash, VPN)
-+ __Paralelização__!!! 
-
-+ Limpar o código:
++ Computação remota (VPN, ssh)
++ __Paralelização__ 
   + Separar os quatro processos em funções diferentes
-  + __Começar a usar controle de versões__ (git/github)
-  + Cuidar o __estilo de código__ 
++ Escrever código em colaboração: 
+  + __Começar a usar controle de versões__ (git/GitHub)
+  + Cuidar do __estilo de código__ 
+
 
 --
 
@@ -436,59 +450,67 @@ library(futures)
 
 ```r
 sfInit(parallel = T, cpus = 3)
-sfExportAll() # para que cada núcleo receba as variávei no workspace
+sfExportAll() # para que cada núcleo receba as variáveis do workspace
 sfLapply(lista_de_especies, modelar)
 sfStop()
 ```
 
-### Passou de 10 para 2 horas ¬¬
+### Passou de 10 dias para 2 horas ¬¬
 
 
 ---
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
 ### __Modularizar__ o código
 
-Cada core aceitava uma especie inteira - os quatro processos. 
++ Cada core ainda aceitava uma especie inteira - os quatro processos 
 
-E se a gente rodasse um processo por vez para todas as espécies? 
++ E se a gente rodasse um processo por vez para todas as espécies? 
 
-Quatro funções
++ Na hora de repetir não precisava voltar até o início
+
++ Quatro funções!
 
 ---
-background-image: url("figs/git2.png")
-background-size: 80%
-background-position: 50% 50%
-
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 ### Controle de versões: Git e GitHub
 
+```{r, echo = F, out.width= 80}
+knitr::include_graphics("./figs/logo-git.png")
+knitr::include_graphics("./figs/GitHub_Logo.png")
+knitr::include_graphics("./figs/btibucket.png")
+knitr::include_graphics("./figs/gitlab-logo-gray-rgb.png")
+```
 
-
----
-background-image: url("figs/distributed.png")
-background-size: 500px
-background-position: 90% 30%
-
-### Git vs. GitHub
-
-+ O GitHub é um portal remoto
-+ Git é o que acontece localmente
-
-
++ Git é o programa que lida localmente
++ O GitHub é um portal remoto, existem outros (BitBucket, Gitlab)
 
 ---
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
 ### Git: baseado em _snapshots_ -> o __commit__
 
-```{r echo = F, out.width=700}
-knitr::include_graphics("figs/snapshots.png")
+```{r, echo = F, out.width= 400}
+knitr::include_graphics("./figs/snapshots.png")
 ```
 
 https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 
 
 ---
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
-# Git: controle de versões
+### Git: modo diff
 
-```{r echo = F, out.width=800}
+```{r echo = F, out.width=600}
 knitr::include_graphics("figs/diff.png")
 ```
 
@@ -506,37 +528,41 @@ knitr::include_graphics("figs/areas.png")
 https://git-scm.com/book/en/v2/Getting-Started-Git-Basics
 
 ---
-background-image: url("figs/logo git.png")
-background-position: 80% 10%
-class:inverse
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+### We `r emojifont::emoji('heart')` `r knitr::include_graphics("figs/logo-git.png", dpi = 300)`
 
-# We <3 git
 
-### Backup
-
---
-
-### Controle de versões
++ Backup
 
 --
 
-### Reprodutibilidade
++ Controle de versões
 
 --
 
-### Workflow colaborativo
++ Reprodutibilidade
 
 --
 
-### Transparência
++ Workflow colaborativo
+
+--
+
++ Transparência
 
 
-## É preciso padronizar o jeito de escrever o código!*
+#### É preciso padronizar o jeito de escrever o código!*
 
 ---
+background-image: url('figs/hadley.jpg')
+background-size: 150px
+background-position: 90% 10%
+
 ### Estilo de código
 
-"Um bom estilo de código é como usar uma boa pontuação. Você pode viver sem ela mas sem dúvida facilita ler as coisas." 
+"Um bom estilo de código é como usar uma boa pontuação. <br>  Você pode viver sem ela mas sem dúvida facilita ler as coisas." 
 
 Hadley Wickham
 
@@ -547,7 +573,7 @@ Hadley Wickham
 
 Independente do estilo, o que importa é ser consistente!
 
-`Ctrl+Shift+A` Reformata code
+`Ctrl+Shift+A` Reformata o código automaticamente
 
 pacote __formatR__ 
 
@@ -584,22 +610,170 @@ Guilherme Gall
 
 
 ---
-background-image: url("figs/pastas.png")
-background-size: contain
-
 ### Estrutura de um pacote de R
 
+```bash
+.
+├── R/           # Funções
+├── man/         # Documentação
+├── data/        # Dados
+├── vignettes/   # Vignettes
+├── inst/        # Os manuais que ficam quando você instala
+├── .buildignore # Arquivos e pastas que não serão controlados
+├── DESCRIPTION  # Descrição do pacote
+├── NAMESPACE    # NAMESPACE
+└── README.md    # README
+```
+
++ O próprio pacote pode ser criado usando as opções de RStudio
++ O pacote __usethis__ (função `usethis::create_package()`)
 
 ---
+### DESCRIPTION
+
+```bash
+.
+├── R/           # Funções
+├── man/         # Documentação
+├── data/        # Dados
+├── vignettes/   # Vignettes
+├── inst/        # Relatórios reprodutíveis a partir dos outputs
+├── .buildignore # Arquivos e pastas que não serão controlados
+*├── DESCRIPTION  # Descrição do pacote
+├── NAMESPACE    # NAMESPACE
+└── README.md    # README
+```
+
+<small>
+A DESCRIPTION do pacote é editada a mão. 
+```
+Package: rladiesrio
+Type: Package
+Title: Isto é um esqueleto de pacote de teste
+Version: 0.1.0
+Author: RLadies+ Rio de Janeiro
+Maintainer: Andrea Sánchez-Tapia <andreasancheztapia@gmail.com>
+Description: Este esqueleto permite entender a estrutura de um pacote. 
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
+```
+</small>
+---
+### NAMESPACE
+
+```bash
+.
+├── R/           # Funções
+├── man/         # Documentação
+├── data/        # Dados
+├── vignettes/   # Vignettes
+├── inst/        # Relatórios reprodutíveis a partir dos outputs
+├── .buildignore # Arquivos e pastas que não serão controlados
+├── DESCRIPTION  # Descrição do pacote
+*├── NAMESPACE    # NAMESPACE
+└── README.md    # README
+```
+O NAMESPACE indica quais funções serão importadas ou exportadas pelo pacote
 
 ```
-devtools::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)
+*# Generated by roxygen2: do not edit by hand
+
+export(create_buffer)
+export(do_any)
+import(graphics)
+import(raster)
+importFrom(Rdpack,reprompt)
+importFrom(dismo,randomPoints)
 ```
+
+---
+### A documentação das funções
+
+```bash
+.
+├── R/           # Funções
+*├── man/         # Documentação
+├── data/        # Dados
+├── vignettes/   # Vignettes
+├── inst/        # Relatórios reprodutíveis a partir dos outputs
+├── .buildignore # Arquivos e pastas que não serão controlados
+├── .gitignore   # Arquivos e pastas que serão ignorados por git
+├── *.Rproj      # Projeto de RStudio
+├── DESCRIPTION  # Descrição do pacote
+├── NAMESPACE    # NAMESPACE
+└── README.md    # README
+```
+
++ Antes era preciso escrever à mão a documentação, o NAMESPACE e a DESCRIPTION.
++ Hoje: os parâmetros das funções podem ser documentados diretamente nos arquivos em R/ com um método diferente: `#'` e indicando os parâmetros, e as funções de pacotes que serão usadas 
+
+---
+### A documentação das funções
+
+```
+#' Titulo da funcao
+#'
+#' descricao
+#'
+#' @param parametro1 descrição do parâmetro1
+#' @param parametro2 descrição do parâmetro2
+#' @Import pacote
+#' @ImportFrom pacote funcao funcao funcao
+#' @details
+#' @returns um data.frame
+*#' @export #para que entre no NAMESPACE
+#' @examples
+um exemplo reprodutível, curto
+funcao <- function(x) {
+funfunfun
+}
+```
++ Opção `code > Insert Roxygen Skeleton` no menu de RStudio
++ Quando a documentação é escrita: `devtools::document()`
++ Vai criar os arquivos em man, editar o NAMESPACE
+
+---
+### Outras formas de documentar: vignettes e README
+
+```bash
+.
+├── R/           # Funções
+├── man/         # Documentação
+├── data/        # Dados
+*├── vignettes/   # Vignettes
+├── inst/        # Relatórios reprodutíveis a partir dos outputs
+*├── .buildignore # Aqui tem que estar README.Rmd que é um arquivo opcional
+├── DESCRIPTION  # Descrição do pacote
+├── NAMESPACE    # NAMESPACE
+*├── README.Rmd    # README em rmarkdown que é knittado para criar o md
+*└── README.md    # README
+```
+
+README e vignettes são arquivos de rmarkdown que são knittados 
+
+```{r, echo = FALSE, out.width=80}
+knitr::include_graphics("./figs/rmarkdown.png")
+```
+
+---
+### Checando o pacote
+
++ Pacote __testthat__ para criar testes formais com expectativas (opcional)
++ Para checar se o pacote está funcionando: `devtools::load_all()` sem precisar instalar mas vai contar se pode ser usado
++ Quando o pacote foi terminado: hora dos tests! `devtools::check()`
++ Vai rodar os tests de CRAN e fazer um diagnóstico do pacote. 
++ Quando está passando tests `r emojifont::emoji('tada')`
+
+![](figs/tests.png)
+
++ Pode mandar para GitHub e __o pacote pode ser instalado desde GitHub__
+
+`remotes::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)`
 
 --
 
-+ Está passando tests
-![](figs/tests.png)
 ---
 ### Fluxos automatizados : __usethis__
 
