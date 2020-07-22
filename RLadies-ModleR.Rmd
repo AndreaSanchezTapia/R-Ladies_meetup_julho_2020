@@ -2,8 +2,7 @@
 title: "Do _script_ ao pacote de R"
 subtitle: "um exemplo desde a biologia"
 author: "Andrea Sánchez-Tapia <br> Núcleo de Computação Científica e Geoprocessamento <br> Jardim Botânico do Rio de Janeiro"
-affiliation: "R-Ladies Rio de Janeiro <br> Quarto meetup"
-date: "`r format(Sys.Date(), '%d-%m-%Y')`"
+date: "R-Ladies Rio de Janeiro"
 output:
   xaringan::moon_reader:
     css: xaringan-themer.css
@@ -12,6 +11,20 @@ output:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+---
+class: inverse, middle, center
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
+# Do _script_ ao pacote de R
+## um exemplo desde a biologia
+### Andrea Sánchez-Tapia <br> Núcleo de Computação Científica e Geoprocessamento <br> Jardim Botânico do Rio de Janeiro
+### R-Ladies Rio de Janeiro
+
+
+
+
 ---
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
@@ -53,6 +66,15 @@ __Informática da biodiversidade__, modelagem de nicho ecológico
 
 __Ciência aberta e reprodutível__, ética na ciência de dados, ciência de dados feminista
 
+--
+
+
+```{r, echo = FALSE, out.width = 100}
+knitr::include_graphics("./figs/df.jpg")
+```
+
+Catherine D'Ignazio & Lauren Klein [http://datafeminism.io/](http://datafeminism.io/)
+
 
 
 ---
@@ -66,21 +88,23 @@ background-size: 150px
 
 + Usuária de `R` desde 2009
 
-+ __O alvo hoje__: Executar e ensinar a fazer projetos de análise reprodutíveis. Desde o download e processamento de dados até produzir o manuscrito, relatório ou apresentação (__`rmarkdown`__, __`knitr`__)
++ .purple[R-Ladies Rio de Janeiro] desde 2017
 
-+ R-Ladies+ Rio desde 2016 
++ __O alvo hoje__: Executar e ensinar a fazer projetos de análise reprodutíveis. Desde o _download_ e processamento de dados até produzir o manuscrito, relatório ou apresentação (__rmarkdown__, __knitr__)
 
- <!-- + Co-fundadora de .red[__¡liibre!__] com Sara Mortara (R-Ladies+ Rio): laboratório de informática da biodiversidade e reprodutibilidade em ecologia--> 
-
+ <!-- + Co-fundadora .red[__¡liibre!__] com Sara Mortara: laboratório de informática da biodiversidade e reprodutibilidade em ecologia --> 
 ---
+class: center, middle
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
 
-### Curso sobre ciência aberta e fluxos de trabalho reprodutíveis
+
 
 .pull-left[
+### Curso _Projetos de análise de dados usando R_
+
 ```{r, echo = FALSE, out.width= 300}
 knitr::include_graphics("./figs/turma.JPG")
 ```
@@ -88,11 +112,19 @@ knitr::include_graphics("./figs/turma.JPG")
 
 ```{r, echo = F, out.width= 100}
 knitr::include_graphics("./figs/logo_jbrj.png")
+#knitr::include_graphics("./figs/liibre.png")
 ```
+
+__Sara Mortara__ (R-Ladies Rio de Janeiro)
 ]
 
-.pull-right[
 
+.pull-right[
+<br>
+<br>
+<br>
+<br>
+<br>
 __Boas práticas__ em análise de dados
 
 ```{r, echo = F, out.width=200}
@@ -132,16 +164,25 @@ background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
-### Por que a ênfase em reprodutibilidade?
+### Por que pensar em pacotes?
 
-+ Transparência
-+ Portabilidade - colaboração!
-+ Correção de erros `->` robusteza
-+ Comunicação
++ Filosofia de R: transição de usuárie a programadore
 
-Para criar um pacote de R precisa ser todas estas coisas
+--
 
-### Mas _bem antes_ de chegar ao pacote também é bom implementar estas boas práticas!
++ Filosofia da __R Foundation__ e de __R Forwards__: mais raças, gêneros, países, línguas representados na comunidade de R ([useR! 2020 panel](https://www.youtube.com/watch?v=gDO1OphmF5Q&t=18s))
+
+--
+
++ Úteis para compartilhar grandes conjuntos de funções que têm um propósito similar
+
+--
+
++ Grande experiência de aprendizado: portabilidade, transparência, robusteza, comunicação. 
+
+--
+
+#### Habilidades que vale muito a pena aprender _bem antes_ de chegar ao pacote
 
 
 ---
@@ -218,14 +259,36 @@ background-size: 150px
 + __Inferência de áreas adequadas para a ocorrência das espécies__
 
 ---
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+
+### A história
+
+#### O trabalho: gerar uma camada de diversidade potencial de plantas <br> da Mata Atlântica
+
++ A "maior" quantidade possível de espécies
++ Muito controle sobre a qualidade dos dados e dos modelos
++ Correção taxonômica, limpeza dos registros
++ Alta resolução (30s ~1km) 
+
+--
+
+#### O fluxo de trabalho: cada espécie precisa passar por várias etapas
+
++ Obtenção, __limpeza__ de dados
++ Desenho experimental, __preparação__ dos dados
++ Ajustar os __modelos__, __projetar__ os modelos para vários algoritmos
++ Juntar os resultados dos diferentes algoritmos
++ Juntar o resultado para várias espécies
+
+---
 class: inverse, middle, center
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
 ### A gente já conhecia algumas boas práticas
-
-
 
 ---
 background-image: url("figs/chevron.png")
@@ -234,7 +297,7 @@ background-size: 150px
 
 ### Boas práticas `r emojifont::emoji('heart')` <br> estrutura de pastas e pasta de trabalho 
 
-+ _Meetup_ anterior! [link](https://www.youtube.com/watch?time_continue=1563&v=4nfIbiS1Huw&feature=emb_title) e arquivo .zip 
++ ___Meetup_ anterior!__  `r icon::fa("youtube")`[Apresentação](https://www.youtube.com/watch?v=4nfIbiS1Huw&t=1583s) e  `r icon::fa("github")` [Tutorial](https://github.com/saramortara/R-git-tutorial)
 
 --
 
@@ -254,74 +317,21 @@ background-size: 150px
   
 --
 
- + O nível acima é com dois pontos: `..`
-
---
-
- + Uma pasta "do lado" é uma subpasta desse nível acima: `"../pasta_irmã"`
-
-
----
-background-image: url("figs/chevron.png")
-background-position: 98% 2%
-background-size: 150px
-
-### Boas práticas `r emojifont::emoji('heart')` <br> estrutura de pastas e pasta de trabalho 
-
 + Cuide da estrutura de pastas
---
-
-```bash
-.
-├── codigo/    # Scripts em R
-├── dados/     # Dados 
-├── output/    # Outputs gerados a partir dos códigos
-├── figs/      # Figuras geradas a partir dos códigos
-├── docs/      # Relatórios reprodutíveis a partir dos outputs
-├── *.Rproj    # Projeto de RStudio
-├── .gitignore # Lista dos arquivos e pastas que não serão controlados
-└── README.md   
-```
---
-
-+ Abra as sessões de R já na pasta de trabalho
---
-
- + Um atalho: usar o pacote __rprojroot__ ou __here__
---
-
- + Um atalho melhor: usar projetos de .blue[RStudio]
 
 ---
-class: inverse, center, middle
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
+class: inverse, middle, center
 
-# A história
+# Os scripts
 
 ---
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
-### Primeira etapa: _scripts_ soltos
-
-#### O trabalho: gerar uma camada de diversidade potencial de plantas <br> da Mata Atlântica
-
-+ A "maior" quantidade possível de espécies
-+ Muito controle sobre a qualidade dos modelos
-+ Correção taxonômica, limpeza dos registros
-+ Alta resolução (30s ~1km)
-
---
-
-#### O fluxo de trabalho: cada espécie precisa passar por várias etapas
-
-+ Obtenção, __limpeza__ de dados
-+ Desenho experimental, __preparação__ dos dados
-+ Ajustar os __modelos__, __projetar__ os modelos para vários algoritmos
-+ Juntar os resultados dos diferentes algoritmos
-+ Juntar o resultado para várias espécies
-
----
 ### Primeira etapa: _scripts_ soltos
 
 + Um script para __uma__ espécie (fazia todas as etapas de vez)
@@ -421,32 +431,63 @@ Felipe Sodré
 
 ---
 background-image: url('./figs/lncc.png')
-background-size: 300px
+background-size: 200px
 background-position: 90% 10%
 
-### Segunda etapa
+### Melhorando o desempenho
 
-+ Capacidade de computação 
-+ Computação remota (VPN, ssh)
-+ __Paralelização__ 
-  + Separar os quatro processos em funções diferentes
-+ Escrever código em colaboração: 
-  + Cuidar do __estilo de código__ 
-  + __Começar a usar controle de versões__ (git/GitHub)
-
++ Capacidade de computação
 
 --
 
++ Computação remota (VPN, ssh)
 
-![Wa](figs/math.gif)
+--
+
++ __Paralelização__ 
+
+--
+
++ __Modularização__: Separar os quatro processos em funções diferentes
+
+--
+
++ __Colaboração__:
+
+--
+  
+  + Cuidar do __estilo de código__ 
+
+--
+
+  + __Começar a usar controle de versões__ (git/GitHub)
+
+--
+
+<center>
+
+```{r, out.width = 200, echo = FALSE}
+knitr::include_graphics("./figs/math.gif")
+```
+
+</center>
+
 
 
 ---
 ### Paralelização
 
-+ Cada processo vai para um _core_ (os computadores de hoje têm 4 _cores_)
-+ Os _clusters_ de computação podem ter várias centenas de _cores_
++ Cada processo vai para um núcleo do computador (_core_)
+
+--
+
++ Os _clusters_ de computação podem ter várias centenas de núcleos
+
+--
+
 + Há várias maneiras de paralelizar processos em R
+
+--
 
 ```r
 library(parallel)
@@ -455,6 +496,9 @@ library(foreach)
 library(futures)
 ```
 
+--
+
+
 ```r
 sfInit(parallel = T, cpus = 3)
 sfExportAll() # para que cada núcleo receba as variáveis do workspace
@@ -462,7 +506,7 @@ sfLapply(lista_de_especies, modelar)
 sfStop()
 ```
 
-### Passou de 10 dias para algumas horas ¬¬
+#### Passou de 10 dias para algumas horas ¬¬
 
 
 ---
@@ -472,30 +516,55 @@ background-size: 150px
 
 ### __Modularizar__ o código
 
-+ Cada core ainda executava o processo inteiro
++ Cada repetição ainda executava os quatro passos
+
+--
 
 + E se a gente rodasse um processo por vez para todas as espécies? 
 
+--
+
+__Antes__  
+`{especie1 A, B, C, D} {especie 2 A, B, C, D} ...n`
+
+
+--
+
+__Depois__  
+`{passo A sp1, sp2, sp3,...spn} {passo B sp1, sp2, sp3,...spn} {passo C sp1, sp2, sp3,...spn} {passo D sp1, sp2, sp3,...spn}`
+
+--
+
 + Na hora de repetir não precisava voltar até o início
 
-+ Quatro funções!
+--
+
++ Quatro funções! Não UMA!
 
 
 ---
 background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
-### Controle de versões: Git e GitHub
+### __Colaboração__ e controle de versões
 
-```{r, echo = F, out.width= 80}
+--
+
+```{r, echo = F, out.width= 200}
 knitr::include_graphics("./figs/logo-git.png")
 knitr::include_graphics("./figs/GitHub_Logo.png")
+```
+
+--
+
+```{r, echo = F, out.width= 200}
 knitr::include_graphics("./figs/btibucket.png")
 knitr::include_graphics("./figs/gitlab-logo-gray-rgb.png")
 ```
 
-+ Git é o programa que lida localmente
-+ O GitHub é um portal remoto, existem outros (BitBucket, Gitlab)
+--
+
++ __Os pacotes de R podem ser instalados diretamente desde GitHub!__
 
 ---
 background-image: url("figs/chevron.png")
@@ -567,8 +636,9 @@ background-size: 150px
 
 + Transparência
 
+--
 
-#### É preciso padronizar o jeito de escrever o código!*
+#### É preciso padronizar o estilo de código!*
 
 ---
 background-image: url('figs/hadley.jpg')
@@ -595,32 +665,51 @@ pacote __formatR__
 
 ---
 background-image: url("figs/rpackages.png")
-background-size: 300px
+background-size: 250px
 background-position: 90% 50%
 
-### Terceira etapa: Transformação em pacote
+### A transformação em pacote
 
+--
 
 ```{r echo = F, out.width=90}
 knitr::include_graphics("figs/guilherme.png")
+knitr::include_graphics("figs/hadley.jpg")
 ```
-Guilherme Gall (LNCC)
+
+
+Guilherme Gall (LNCC) + Hadley Wickham 
 
 --
 
-+ Estrutura especial das pastas
++ Estrutura especial das pastas e arquivos especiais
+
+--
+
 + Documentação específica
-+ Licença
-+ "Vignettes"
-+ Documentação cuidadosa
-+ Passar testes!
-+ Submissão a CRAN _`#medo`_
 
 --
 
-#### Pacotes para ajudar:
-+ `devtools`  
-+ `roxygen2`  
++ Licença de uso
+
+--
+
++ "Vignettes" e documentação adicional
+
+--
+
++ Passar testes!
+
+--
+
++ Publicar (Submissão a CRAN? `#medo`)
+
+--
+
+
+
+
+
 
 
 
@@ -641,28 +730,8 @@ Guilherme Gall (LNCC)
 ```
 
 + O próprio pacote pode ser criado usando as opções de RStudio
-+ O pacote __usethis__ (função `usethis::create_package()`)
-+ Alguns elementos são obrigatótios (DESCRIPTION, NAMESPACE, R, man)
-
----
-### R e data
-
-```bash
-.
-*├── R/           # Funções
-*├── man/         # Documentação
-*├── data/        # Dados
-├── vignettes/   # Vignettes
-├── inst/        # Relatórios reprodutíveis a partir dos outputs
-├── .buildignore # Arquivos e pastas que não serão controlados
-├── DESCRIPTION  # Descrição do pacote
-├── NAMESPACE    # NAMESPACE
-└── README.md    # README
-```
-
-+ As __funções__ estão na pasta `R/`
-+ A documentação das funções estará em `man/`
-+ Os __dados__ estarão na pasta `data/` `(data(cars)`)
++ O pacote __usethis__: `usethis::create_package()`
++ Alguns elementos são obrigatórios (DESCRIPTION, NAMESPACE, R/, man/)
 
 ---
 ### DESCRIPTION
@@ -696,6 +765,7 @@ LazyData: true
 RoxygenNote: 7.1.0
 ```
 </small>
+
 ---
 ### NAMESPACE
 
@@ -725,6 +795,27 @@ importFrom(dismo,randomPoints)
 ```
 
 ---
+### R e data
+
+```bash
+.
+*├── R/           # Funções
+*├── man/         # Documentação
+*├── data/        # Dados
+├── vignettes/   # Vignettes
+├── inst/        # Relatórios reprodutíveis a partir dos outputs
+├── .buildignore # Arquivos e pastas que não serão controlados
+├── DESCRIPTION  # Descrição do pacote
+├── NAMESPACE    # NAMESPACE
+└── README.md    # README
+```
+
++ As __funções__ estão na pasta `R/`
++ A documentação das funções estará em `man/`
++ Os __dados__ estarão na pasta `data/` `(data(cars)`)
+
+
+---
 ### __roxygen2__ e a documentação das funções
 
 ```bash
@@ -742,8 +833,10 @@ importFrom(dismo,randomPoints)
 └── README.md    # README
 ```
 
-+ Antes era preciso escrever à mão a documentação, o NAMESPACE e a DESCRIPTION.
-+ Hoje: os parâmetros das funções podem ser documentados diretamente nos arquivos em R/ com um método diferente: `#'` e indicando os parâmetros, e as funções de pacotes que serão usadas 
++ Antes era preciso escrever à mão a documentação e o NAMESPACE
++ Hoje: as funções podem ser documentadas diretamente nos arquivos .R em R/ 
++ O pacote __roxygen2__ vai transformar esses comentários em arquivos .Rd da documentação
+
 
 ---
 ### __roxygen2__ e a documentação das funções
@@ -761,14 +854,21 @@ importFrom(dismo,randomPoints)
 #' @returns um data.frame
 *#' @export #para que entre no NAMESPACE
 #' @examples
-um exemplo reprodutível, curto
-funcao <- function(x) {
-funfunfun
-}
+#' funcao <- function(x) {
+#' funfunfun
+#' }
+
+funcao <- function(x) { ...
 ```
 + Opção `code > Insert Roxygen Skeleton` no menu de RStudio
-+ Quando a documentação é escrita: `devtools::document()`
-+ Vai criar os arquivos em man/ e editar o NAMESPACE
+
+--
+
++ Quando a documentação está escrita: `devtools::document()`
+
+--
+
++ __roxygen2__ vai criar os arquivos em man/ e editar o NAMESPACE
 
 ---
 ### Outras formas de documentação: vignettes e README
@@ -787,11 +887,16 @@ funfunfun
 *└── README.md    # README
 ```
 
-+ README e vignettes são arquivos de rmarkdown que são knittados 
++ README e vignettes são arquivos de __rmarkdown__ 
+
+<center>
 
 ```{r, echo = FALSE, out.width=100}
 knitr::include_graphics("./figs/rmarkdown.png")
 ```
+
+</center>
+
 
 ---
 ### __.buildignore__ permite ignorar arquivos fora do padrão ou que ainda não estão prontos
@@ -809,43 +914,83 @@ knitr::include_graphics("./figs/rmarkdown.png")
 *├── README.Rmd    # README em rmarkdown que é knittado para criar o md
 └── README.md    # README
 ```
+
++ .buildignore é um __arquivo de texto__
+
+--
+
++ O ponto no início do nome faz com que o navegador de arquivos não veja: arquivo oculto
+
+--
+
++ O navegador do .blue[RStudio] consegue ver! 
+
+--
+
++ Editar: `README.Rmd`
+
 ---
-background-image: url("figs/testthat.png")
+background-image: url("figs/devtools.png")
 background-position: 98% 2%
 background-size: 150px
 
 
 ### Checando o pacote
 
-
-+ Pacote __testthat__ para criar testes formais com expectativas
-
-+ Para checar se o pacote está funcionando: `devtools::load_all()` sem precisar instalar mas vai contar se pode ser usado
-+ Quando o pacote foi terminado: hora dos tests! `devtools::check()`
-+ Vai rodar os tests de CRAN e fazer um diagnóstico do pacote. 
-+ Quando está passando tests `r emojifont::emoji('tada')`
-
-![](figs/tests.png)
-
-+ Pode mandar para GitHub e __o pacote pode ser instalado desde GitHub__
-
-`remotes::install_github("Model-R/modelr_pkg", build_vignettes = TRUE)`
++ __Durante o trabalho__: `devtools::load_all()` 
 
 --
 
++ Quando o pacote foi terminado: hora dos checks de CRAN! `devtools::check()`
+
+--
+
++ Vai devolver NOTAS, ADVERTÊNCIAS e ERROS 
+
+--
+
++ Resolver um a um. Internet, paciência, café. 
+
+--
+
+<center>
+```{r, echo = FALSE, out.width= 300}
+knitr::include_graphics("figs/tests.png")
+```
+</center>
+
+
+--
+
++ Pode mandar para GitHub e __o pacote pode ser instalado desde GitHub__
+
+--
+
+`remotes::install_github("Model-R/modleR", build_vignettes = TRUE)`
+
 ---
-background-image: url("figs/usethis.png")
+background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
-### Fluxos automatizados : __usethis__
+### Outras ferramentas para seus pacotes
 
----
-background-image: url("figs/testthat.png")
-background-position: 98% 2%
-background-size: 150px
+--
 
-### Tests formais: __testthat__
+```{r, echo = FALSE, out.width= 150}
+knitr::include_graphics("figs/usethis.png")
+knitr::include_graphics("figs/testthat.png")
+```
+
+--
+
+
++ __usethis__: permite criar pacotes, usar git, organizar desde o início (__Não misture!__)
+
+--
+
++ __testthat__: criar testes com expectativas formais
+
 
 ---
 background-image: url("figs/pkgdown-logo.png")
@@ -853,81 +998,80 @@ background-position: 98% 2%
 background-size: 150px
 ### Uma página para o seu pacote: __pkgdown__
 
-```{r, echo = FALSE, out.width=350}
+```{r, echo = FALSE, out.width=500}
 knitr::include_graphics("./figs/pkgdown.png")
 ```
 
-+ `pkgdown::build_site()` vai knittar tudo em formato de página web e colocar em uma pasta __docs/__ do pacote
-+ O repositório de GitHub tem que estar configurado para fazer uma página a partir dessa pasta
++ `pkgdown::build_site()` knittar em formato de página web e colocar em uma pasta __docs/__ do pacote
+
+--
+
++ O repositório de GitHub tem que estar configurado para fazer uma página a partir de __docs/__ 
+
+
+
 + O readme ou um index.md serão a primeira página
 + A vignette principal irá em Get started
-+ Vignettes adicionais __que não estão no pacote__ devem ir em vignettes/articles e irão na aba Articles
++ Vignettes adicionais __que não estão no pacote__ devem ir em vignettes/articles e irão na aba __Articles__
+
 
 ---
-### Lições nestes anos
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
-+ Trabalho colaborativo entre instituições e áreas do conhecimento (JBRJ, LNCC, IIS)
-+ Boas perguntas
-+ Limpeza de dados!
-+ Paciência
-+ Controle de versões, ênfase na documentação
-+ Testes pelos usuários (Versão web/php OK, falta muito trabalho no teste direto do pacote)
+### Do _script_ ao pacote
+
++ Procure __portabilidade__ e __reprodutibilidade__ em seus scripts
+
+--
+
++ Separe os problemas em unidades menores: resolva UMA unidade e crie __loops__ e __funções__ para o resto
+
+--
+
++ Invista em aprender __git__ e __rmarkdown__ 
 
 ---
-### Sobre qualquer _script_ em geral
+background-image: url("figs/chevron.png")
+background-position: 98% 2%
+background-size: 150px
 
-.pull-left[
-`Não`
-+ Use `setwd()` e a mesma sessão para diferentes projetos
-+ Use pastas absolutas (`"C://Eu/Minha_pasta/"`)
-+ Dependa do workspace: chega de salvar e carregar o `.RData`.
-]
+### Do _script_ ao pacote 
 
-.pull-right[
-`Sim`
-+ Use os projetos de RStudio! (`.RProj`) 
-+ Em vez disso `("aqui", "./subpasta","../pasta do lado")` 
-+ E escreva arquivos de output e leia-os
-+ Invista em aprender a usar __git__ e __github__ ou __bitbucket.__
-+ Documente e comente tudo o que puder
-+ Use um padrão de código (espaços, indentação, etc...)
-]
++ Vale a pena?
 
----
-### Sobre a criação de pacotes
-
-+ Pense bem se vale a pena fazer o pacote `r emojifont::emoji("thinking")` Manutenção, atualização e comunidade de usuáries.
 --
 
-+ Pense bem nos fluxos de trabalho: quantas funções, o que entra em cada fase? o que sai? Modularize
++ Colaborar com pacotes existentes?
+
 --
 
-+ Separe os problemas de código e resolva para um caso só
++ Quantas funções, o que entra em cada fase? o que sai? Modularize
+
 --
-
-+ Convirta o código em funções (o "_for loop_" é um passo intermediário)
---
-
-
-+ Invista em aprender sobre __git__ e __GitHub__/__Gitlab__/__Bitbucket__
---
-
 
 + Não faça do zero: use __roxygen2__, __devtools__, __usethis__, __testthat__
+
 --
 
-+ Cuide da documentação e crie vignettes e exemplos (por definição eles terão de ser reprodutíveis)
++ Cuide da __documentação__ e crie __vignettes__ e exemplos  <!-- (por definição eles terão de ser reprodutíveis) --> 
+
 --
 
-+ Crie uma página web com  __pkgdown__ e divulgue seu trabalho #rstats, #rladies
++ Divulgue seu trabalho .purplr[`#rstats`], .purple[`#rladies`]
+
 --
 
 + Teste, cuide des usuáries e da comunidade ao redor do pacote `r emojifont::emoji("heart")`
 
 
-
 ---
-class: center, middle
+background-image: url("figs/antifa.PNG")
+background-position: 98% 2%
+background-size: 150px
+
+class: center, bottom
 
 # ¡Obrigada!
 
@@ -938,4 +1082,21 @@ class: center, middle
 `r icon::fa("github", colour = "#562457")` `r icon::fa("gitlab", colour = "#562457")` `r icon::fa("bitbucket", colour = "#562457")` [andreasancheztapia](http://github.com/andreasancheztapia) 
 
 `r icon::fa("r-project", colour = "#562457")` [R-Ladies+ Rio de Janeiro](https://www.meetup.com/pt-BR/rladies-rio/)
+
+
+.pull-left[
+```{r, echo = FALSE, out.width= 150}
+knitr::include_graphics("./figs/cnpq.png")
+```
+```{r, echo = FALSE, out.width= 120}
+knitr::include_graphics("./figs/capes.png")
+```
+]
+
+.pull-right[
+```{r, echo = FALSE, out.width= 150}
+knitr::include_graphics("./figs/consortium.png")
+```
+]
+
 
