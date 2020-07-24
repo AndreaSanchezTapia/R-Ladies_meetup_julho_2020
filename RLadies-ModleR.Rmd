@@ -93,6 +93,7 @@ background-size: 150px
 + __O alvo hoje__: Executar e ensinar a fazer projetos de análise reprodutíveis. Desde o _download_ e processamento de dados até produzir o manuscrito, relatório ou apresentação (__rmarkdown__, __knitr__)
 
  <!-- + Co-fundadora .red[__¡liibre!__] com Sara Mortara: laboratório de informática da biodiversidade e reprodutibilidade em ecologia --> 
+
 ---
 class: center, middle
 background-image: url("figs/chevron.png")
@@ -630,7 +631,7 @@ background-size: 150px
 
 --
 
-+ Workflow colaborativo
++ Workflow colaborativo: __issues__ para perguntar e dar feedback, __Pull Requests__ para sugerir mudanças
 
 --
 
@@ -899,7 +900,7 @@ knitr::include_graphics("./figs/rmarkdown.png")
 
 
 ---
-### __.buildignore__ permite ignorar arquivos fora do padrão ou que ainda não estão prontos
+### __.buildignore__ 
 
 ```bash
 .
@@ -915,7 +916,7 @@ knitr::include_graphics("./figs/rmarkdown.png")
 └── README.md    # README
 ```
 
-+ .buildignore é um __arquivo de texto__
++ .buildignore é um __arquivo de texto__ permite ignorar arquivos fora do padrão ou que ainda não estão prontos
 
 --
 
@@ -1065,9 +1066,22 @@ background-size: 150px
 
 + Teste, cuide des usuáries e da comunidade ao redor do pacote `r emojifont::emoji("heart")`
 
-
 ---
 background-image: url("figs/antifa.PNG")
+background-position: 98% 2%
+background-size: 150px
+
+### Pacotes de exemplo: __coronabr__ e __R-ladies antifa__
+
+```{r, echo = FALSE, out.width = 600}
+knitr::include_graphics("./figs/coronabr.png")
+
+```
+
+[https://github.com/liibre/rladies_antifa](https://github.com/liibre/rladies_antifa)
+
+---
+background-image: url("figs/chevron.png")
 background-position: 98% 2%
 background-size: 150px
 
